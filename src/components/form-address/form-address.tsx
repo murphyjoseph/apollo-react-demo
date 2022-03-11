@@ -1,14 +1,12 @@
 import React, { FC } from 'react';
-import { Grid, Form } from '@wantable/kitter';
 import { FieldText } from '../../ui-patterns/fields/field-text';
 import { STATE_IDS } from '../../global/constants/state-ids';
 import { ButtonMain } from '../../ui-patterns/buttons/button-main';
 import { useGlobalContext } from '../../global/context/global-context';
 import { Error } from '../../ui-patterns/error/error';
-import { IFormAddress } from './address.interface';
+import { IFormAddress } from './types';
 import { FieldSelect } from '../../ui-patterns/fields/field-select';
-import * as css from './_styles';
-// Reactor Address Form
+
 export const FormAddress: FC<IFormAddress> = ({
   onSubmit,
   handleFieldChange,
@@ -25,7 +23,7 @@ export const FormAddress: FC<IFormAddress> = ({
   return (
     <Form
       traits={{
-        name: 'inviteForm',
+        name: 'addressForm',
         onSubmit: (e: any) => onSubmit(e),
         isDirty,
         isNoHTMLValidate: true,
@@ -141,7 +139,7 @@ export const FormAddress: FC<IFormAddress> = ({
           />
         </Grid.Item>
       </Grid>
-      <div className={css.buttonContainer}>
+      <div>
         <ButtonMain
           brand="secondary"
           text={buttonText}
